@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+
+<div mat-dialog-content class="html-msg" [innerHtml]="htmlToAdd">{{ data.message }}</div>
+
+<!-- <div class="content" *ngIf="data.content">{{ data.content }}</div> -->
+
+<div mat-dialog-actions class="center-btn">
+  <button *ngIf="data.negative" mat-stroked-button color="primary" (click)="data.negative.click()">
+    {{ data.negative.title }}
+  </button>
+  <button *ngIf="data.positive" mat-flat-button color="primary" (click)="data.positive.click()">
+    {{ data.positive.title }}
+  </button>
+</div>

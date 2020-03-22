@@ -1,0 +1,132 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'styles-variables.scss';
+
+/** Font Definition - Open Sans */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('../assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('../assets/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('../assets/fonts/Open_Sans/OpenSans-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  /** Font Definition - Montserrat */
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat/Montserrat-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  $general-typography: mat-typography-config($font-family: 'Open Sans, sans-serif'
+  );
+  
+  $secondary-typography: mat-typography-config($font-family: 'Montserrat, sans-serif'
+  );
+  
+  @include mat-core($general-typography);
+  
+  
+  $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+  
+  @include angular-material-theme($app-theme);
+  
+  html { height: 100%; }
+
+  body {
+    margin: 0;
+    font-family: "Open Sans";
+    font-size: 14px;
+    color: $black;
+    position: relative;
+  }
+  
+  button {
+    font-family: "Montserrat";
+  }
+  
+  main {
+    z-index: 0 !important;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Montserrat";
+    font-weight: 600;
+  }
+  
+  h1 {
+    font-size: 38px;
+  }
+  
+  h2 {
+    font-size: 32px;
+  }
+  
+  h3 {
+    font-size: 28px;
+  }
+  
+  h4 {
+    font-size: 24px;
+  }
+  
+  h5 {
+    font-size: 20px;
+  }
+  
+  h6 {
+    font-size: 16px;
+  }
+  
+  .mat-button,
+  .mat-flat-button,
+  .mat-raised-button,
+  .mat-stroked-button {
+    min-width: $buttonMinWidth !important;
+  }

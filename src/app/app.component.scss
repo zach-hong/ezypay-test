@@ -1,0 +1,42 @@
+.m-padding {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.m-radio {
+    margin-top: 10px;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+  
+.example-radio-button {
+    margin: 5px;
+}
+
+.example-radio-group-2 {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+}
+
+.choose-dates {
+    margin-top: 10px;
+    flex-direction: row;
+    >.mat-form-field:last-child {
+        margin-left: 20px;
+    }
+}
+
+.m-btn {
+    margin-top: 20px;
+}
+
+.m-card-content {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+}

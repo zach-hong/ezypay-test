@@ -1,0 +1,105 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="m-padding">
+  <div style="text-align:center">
+    <h3>
+      Welcome to {{ title }}!
+    </h3>
+  </div>
+
+  <mat-card>
+    <mat-card-header>
+      <h5 mat-label>Create A Subscription</h5>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="m-card-content">
+        <mat-form-field>
+          <mat-label>Amount</mat-label>
+          <input matInput [formControl]="amountFormControl" placeholder="Amount">
+          <mat-error *ngIf="amountFormControl.hasError('twoDecimalPattern') && !amountFormControl.hasError('required')">
+            Please enter a valid amount
+          </mat-error>
+          <mat-error *ngIf="amountFormControl.hasError('required')">
+            Amount is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="m-radio">
+          <mat-label>Subscription Type</mat-label>
+          <mat-radio-group class="example-radio-group" (change)="subscriptionTypeChanged($event)"
+            [(ngModel)]="selectedType">
+            <mat-radio-button class="example-radio-button" *ngFor="let sub of subTypes" [value]="sub">
+              {{sub}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <mat-form-field *ngIf="selectedType === 'DAILY'">
+          <mat-label>Hour</mat-label>
+          <input matInput [formControl]="hourFormControl" placeholder="Hour">
+          <mat-error *ngIf="hourFormControl.hasError('hourPattern') || hourFormControl.hasError('maxlength')">
+            Please enter a valid 24 hour
+          </mat-error>
+          <mat-error *ngIf="hourFormControl.hasError('required')">
+            Hour is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <div class="m-radio" *ngIf="selectedType === 'WEEKLY'">
+          <mat-label>Select Day</mat-label>
+          <mat-radio-group class="example-radio-group-2" [(ngModel)]="selectedDay">
+            <mat-radio-button class="example-radio-button" *ngFor="let day of weekdays" [value]="day.value">
+              {{day.name}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mat-form-field *ngIf="selectedType === 'MONTHLY'">
+          <mat-label>Date</mat-label>
+          <input matInput [formControl]="dateFormControl" placeholder="Date">
+          <mat-error *ngIf="dateFormControl.hasError('datePattern') || dateFormControl.hasError('maxlength')">
+            Please enter a valid Date
+          </mat-error>
+          <mat-error *ngIf="dateFormControl.hasError('required')">
+            Date is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="choose-dates">
+          <mat-form-field>
+            <mat-label>Choose a Start Date</mat-label>
+            <input matInput [formControl]="startDtFormControl" [min]="todayDate"
+              [max]="endDtFormControl.value ? endDtFormControl.value : null" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="startDtFormControl.hasError('required')">
+              Start Date is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="startDtFormControl.hasError('dateExceed')">
+              Exceeded 3 months!
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Choose a End Date</mat-label>
+            <input matInput [formControl]="endDtFormControl"
+              [min]="startDtFormControl.value ? startDtFormControl.value : todayDate" [matDatepicker]="picker2">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-error *ngIf="endDtFormControl.hasError('required')">
+              End Date is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="endDtFormControl.hasError('dateExceed')">
+              Exceeded 3 months!
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="m-btn">
+          <button mat-raised-button color="primary" [disabled]="fieldsValid()" (click)="submit()">Create</button>
+        </div>
+
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,63 @@
+@import '~@angular/material/theming';
+
+$md-primary: (
+    50 : #ecebf5,
+    100 : #cfcee5,
+    200 : #b0aed4,
+    300 : #908dc2,
+    400 : #7874b5,
+    500 : #605ca8,
+    600 : #5854a0,
+    700 : #4e4a97,
+    800 : #44418d,
+    900 : #33307d,
+    A100 : #c8c6ff,
+    A200 : #9793ff,
+    A400 : #6660ff,
+    A700 : #4e47ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+
+
+// Copy the palettes from your selected theme (usually theme.scss).
+$app-primary: mat-palette($md-primary);
+$app-accent:  mat-palette($mat-deep-purple, 900, A100, A400);
+$app-warn:    mat-palette($mat-red);
+
+// Create your Sass color vars (will be available in all the project)
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+
+$borderMargin: 14px;
+$tableMargin: 14px;
+$buttonMinWidth: 150px;
+$borderRadius: 5px;
+
+$blue:#26B9F2;
+$black:#343A40;
+$white: white;
+$grey:#E9E9EA; //this is for footer bar and table headers
+
+/*Colour - Semantic*/
+$warningOrange: #FFA520;
+$successGreen: #6AC259;
+$errorRed: #FF0606; 
+$infoBlue: #19A4DF;
